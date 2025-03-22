@@ -1,8 +1,6 @@
 const loginRouter = require("../components/login");
 
 const employeesRouter = require("../components/employees");
-
-const course_managementRouter = require("../router/course_management");
 const mastersRouter = require("../router/masters");
 const studentRouter = require("../components/student");
 const rolesRouter = require("../components/admin/roles");
@@ -16,7 +14,6 @@ module.exports = function (iocContainer) {
     const router = express.Router();
     router.use('/', loginRouter(iocContainer));
 
-    router.use('/course_management', course_managementRouter(iocContainer));
     router.use('/employees', employeesRouter(iocContainer));
     router.use('/masters', mastersRouter(iocContainer));
 
