@@ -14,7 +14,7 @@ export const SIDEBAR_LINKS = [
     icon: <IoHomeOutline fontSize={20} />,
   },
   { title: "Courses", path: "/courses", icon: <IoBookOutline fontSize={20} /> },
-  { title: "Trainers", path: "/trainers", icon: <IoPersonOutline fontSize={20} /> },
+  { title: "Trainers", path: "/trainers/mainpage", icon: <IoPersonOutline fontSize={20} /> },
   {
     title: "Students",
     path: "/students",
