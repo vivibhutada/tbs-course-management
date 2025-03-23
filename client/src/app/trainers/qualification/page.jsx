@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaRegPenToSquare } from "react-icons/fa6";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const EducationTraining = () => {
   const [modalType, setModalType] = useState(null);
@@ -14,6 +16,43 @@ const EducationTraining = () => {
     grade: "",
   });
   const [educationData, setEducationData] = useState([]);
+  let programmes = [
+    {
+      course: "mern stack",
+      duration: "7 months",
+      mode: "online",
+      fees: "₹50000",
+      courseType: "paid",
+    },
+    {
+      course: "full stack development",
+      duration: "6 months",
+      mode: "online",
+      fees: "₹45000",
+      courseType: "paid",
+    },
+    {
+      course: "data science",
+      duration: "9 months",
+      mode: "hybrid",
+      fees: "₹60000",
+      courseType: "paid",
+    },
+    {
+      course: "cyber security",
+      duration: "8 months",
+      mode: "offline",
+      fees: "₹55000",
+      courseType: "paid",
+    },
+    {
+      course: "UI/UX design",
+      duration: "5 months",
+      mode: "online",
+      fees: "₹0",
+      courseType: "free",
+    },
+  ];
 
   const takenQualifications = new Set(
     educationData.map((e) => e.qualification)
@@ -67,6 +106,18 @@ const EducationTraining = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const handleDelete = (index) => {
+    const updatedEducation = educationData.filter((_, i) => i !== index);
+    setEducationData(updatedEducation);
+  };
+  const handleEdit = (index) => {
+    const selectedEducation = educationData[index];
+    setFormData(selectedEducation);
+    setModalType("Edit Education");
+
+    // Remove existing entry temporarily to avoid duplicate validation errors
+    setEducationData(educationData.filter((_, i) => i !== index));
+  };
 
   return (
     <div className='flex bg-gray-100 min-h-screen'>
@@ -79,36 +130,56 @@ const EducationTraining = () => {
           <div className='flex justify-between items-center border-b pb-3'>
             <h3 className='text-xl font-semibold text-gray-800'>Education</h3>
             <div className=' flex gap-2'>
-              <Link href='/trainers/experiance'>
-                <button className='bg-blue-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md'>
-                  + Add Experiance
-                </button>
-              </Link>
               <button
                 className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md'
                 onClick={() => setModalType("Education")}
               >
-                + Add More
+                + Add Education
               </button>
+              <Link href='/trainers/experiance'>
+                <button className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md'>
+                  + Add Experiance
+                </button>
+              </Link>
             </div>
           </div>
-          <ul className='mt-4 space-y-2'>
-            {educationData.map((entry, index) => (
-              <li
+          {/* display list */}
+          <div className='w-[98%] mt-5 m-auto  bg-white p-4 rounded-lg'>
+            {educationData.length > 0 && (
+              <div className='text-gray-700 text-lg font-bold bg-white'>
+                <div className='flex justify-between items-center p-3 text-base text-gray-600 rounded mb-2'>
+                  <span className='w-35'>Qualification</span>
+                  <span className='w-35'>Year</span>
+                  <span className='w-35'>Grade/Percentage</span>
+                  <span className='w-35'></span>
+                </div>
+              </div>
+            )}
+            {educationData.map((edu, index) => (
+              <div
                 key={index}
-                className='bg-green-100 p-3 rounded-lg flex justify-between items-center'
+                className='flex justify-between items-center p-3 border border-gray-200 text-sm font-semibold text-gray-500 bg-gray-50 hover:bg-green-50 rounded mb-2'
               >
-                <span className='text-gray-700'>
-                  {entry.qualification} - {entry.year?.getFullYear()} -{" "}
-                  {entry.grade}
+                <span className='w-35'>{edu.qualification}</span>
+                <span className='w-35'>{edu.year.getFullYear()}</span>
+                <span className='w-35'>{edu.grade}</span>
+                <span className='flex space-x-2 w-35'>
+                  <FaRegPenToSquare
+                    className='w-5 h-5 cursor-pointer'
+                    onClick={() => handleEdit(index)}
+                  />
+                  <RiDeleteBin6Line
+                    className='w-5 h-5 cursor-pointer'
+                    onClick={() => handleDelete(index)}
+                  />
                 </span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {modalType && (
-          <div className='fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
+          <div className='fixed inset-0  backdrop-blur-xs bg-opacity-10 flex justify-center items-center'>
             <div className='bg-white w-96 p-6 rounded-lg shadow-lg'>
               <div className='flex justify-between items-center border-b pb-2'>
                 <h3 className='text-xl font-semibold text-gray-800'>
@@ -147,7 +218,7 @@ const EducationTraining = () => {
                   onChange={(date) => setFormData({ ...formData, year: date })}
                   showYearPicker
                   dateFormat='yyyy'
-                  className='w-full p-3 mt-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500'
+                  className='w-[160%] p-3 mt-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500'
                   placeholderText='Select Year of Passing'
                 />
                 <input
