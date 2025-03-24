@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
+// import { useRouter } from "next/navigation";
 
 const EducationTraining = () => {
   const [modalType, setModalType] = useState(null);
@@ -137,7 +138,7 @@ const EducationTraining = () => {
                 + Add Education
               </button>
               <Link href='/trainers/experiance'>
-                <button className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md'>
+                <button  className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md'>
                   + Add Experiance
                 </button>
               </Link>
