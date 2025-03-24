@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 const StudentsList = () => {
-  const { students, setStudents } = useContext(DataContext);
+  const { studentsData, setStudentsData } = useContext(DataContext);
   const { editIndex, setEditIndex } = useContext(DataContext); // Track the student being edited
   const { selectedCountry, setSelectedCountry } = useContext(DataContext);
   const { selectedState, setSelectedState } = useContext(DataContext);
@@ -21,7 +21,7 @@ const StudentsList = () => {
   const router = useRouter();
 
   const handleEdit = (index) => {
-    const student = students[index];
+    const student = studentsData[index];
     setEditIndex(index); // Set the student being edited
     router.push("/students/create");
 
@@ -51,12 +51,12 @@ const StudentsList = () => {
   };
 
   const handleDelete = (index) => {
-    const updatedStudents = students.filter((_, i) => i !== index); // Remove the student
-    setStudents(updatedStudents);
+    const updatedStudents = studentsData.filter((_, i) => i !== index); // Remove the student
+    setStudentsData(updatedStudents);
   };
 
   const handleCourse = (index) => {
-    const student = students[index];
+    const student = studentsData[index];
     router.push(`/students/assign_course?id=${student.id}`);
   };
 
@@ -79,7 +79,7 @@ const StudentsList = () => {
 
       {/* students list */}
       <div className="w-full h-full px-6 py-6 bg-white flex flex-row justify-between gap-3 rounded-xl shadow-md">
-        {students.length === 0 ? (
+        {studentsData.length === 0 ? (
           <p className="w-full font-semibold text-center text-lg text-gray-500 py-3">
             No students data available.
           </p>
@@ -104,7 +104,7 @@ const StudentsList = () => {
               {/* <span className="w-1/6">Address</span> */}
               <span className="w-1/10"></span>
             </div>
-            {students.map((std, index) => (
+            {studentsData.map((std, index) => (
               <div
                 key={index}
                 className="w-full flex justify-between items-center px-3 py-4 border-2 border-gray-200 hover:border-green-600 text-sm font-semibold text-gray-500 bg-gray-100 hover:bg-green-50 cursor-pointer rounded-md mb-2 transition-colors duration-200"

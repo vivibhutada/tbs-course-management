@@ -27,7 +27,7 @@ const citiesByState = {
 };
 
 const StudentRegistration = () => {
-  const { students, setStudents } = useContext(DataContext);
+  const { studentsData, setStudentsData } = useContext(DataContext);
   const { editIndex, setEditIndex } = useContext(DataContext); // Track the student being edited
   const [showForm, setShowForm] = useState(false); // State to control form visibility
   const { selectedCountry, setSelectedCountry } = useContext(DataContext);
@@ -51,11 +51,11 @@ const StudentRegistration = () => {
       // Update existing student
       const updatedStudents = [...students];
       updatedStudents[editIndex] = { ...updatedStudents[editIndex], ...data };
-      setStudents(updatedStudents);
+      setStudentsData(updatedStudents);
       setEditIndex(null); // Reset edit mode
     } else {
       // Add new student
-      setStudents([...students, data]);
+      setStudentsData([...studentsData, data]);
     }
     reset(); // Reset the form after submission
 
