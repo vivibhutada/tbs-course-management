@@ -1,3 +1,4 @@
+// faqs/dao.js
 const getAll = ({ db }) =>  async () => {
   let [res] = await db.sequelize.query(`select * from mst_faqs where deletedon is null`);
     return res;

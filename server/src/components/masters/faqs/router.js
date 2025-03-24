@@ -1,4 +1,4 @@
-
+// faqs/router.js
 module.exports = function (iocContainer) {
     const {
         express,

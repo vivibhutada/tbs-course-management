@@ -1,3 +1,4 @@
+// faqs/controller.js
 
 const getAll = ({ dao, db}) => async (req, res) => {
   try {

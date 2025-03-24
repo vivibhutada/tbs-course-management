@@ -1,3 +1,4 @@
+// faqs//index.js
 const controller = require('./controller');
 const dao = require("./dao");
 const router = require("./router");

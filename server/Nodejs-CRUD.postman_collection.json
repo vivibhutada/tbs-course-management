@@ -1,0 +1,984 @@
+{
+	"info": {
+		"_postman_id": "90705744-e565-44ff-95c7-e0f75f81cd65",
+		"name": "PM-24-JAN-RBAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20465039",
+		"_collection_link": "https://talentkind.postman.co/workspace/NODE-DEMO~8d004c85-184b-4c79-bc20-de19c51f3c39/collection/20465039-90705744-e565-44ff-95c7-e0f75f81cd65?action=share&source=collection_link&creator=20465039"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loginid\" : \"admin\",\r\n    \"password\" : \"1100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/checklogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"checklogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loginid\" : \"admin\",\r\n    \"password\" : \"1100\",\r\n    \"otp\":\"111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/verifylogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"verifylogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student CRUD",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "roll_no",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "ankita",
+									"type": "text"
+								},
+								{
+									"key": "middlename",
+									"value": "sk",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "mowade",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "21-04-1999",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Female",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "9685859655",
+									"type": "text"
+								},
+								{
+									"key": "adhar_no",
+									"value": "380121333635",
+									"type": "text"
+								},
+								{
+									"key": "pan_no",
+									"value": "AFZPK7350B",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "nagpur",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/ankita.mowade/Pictures/1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/students/save",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "SPYiVyLcgeF8WcERrTjdog.55c518192e1fbc92",
+									"type": "text"
+								},
+								{
+									"key": "roll_no",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "ankita",
+									"type": "text"
+								},
+								{
+									"key": "middlename",
+									"value": "skj",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "mowade",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "21-04-1999",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Female",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "9685859655",
+									"type": "text"
+								},
+								{
+									"key": "adhar_no",
+									"value": "380121333635",
+									"type": "text"
+								},
+								{
+									"key": "pan_no",
+									"value": "AFZPK7350B",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "nagpur 34",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/ankita.mowade/Pictures/2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/students/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"rHbsNZNpv2rvfnXHr5V3lA.73bcb32bea81baaf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/pradeep.malviya/Downloads/students-import-sample-file (1).xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/students/import",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostColumnEncrption",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"table_name\":\"students\",\r\n    \"columns\":[\"firstname\"],\r\n    \"pk\":\"id\",\r\n    \"flag\": \"decrypt\"  //decrypt//encrypt\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students/column-security",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"column-security"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRecord",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page\": 1,\r\n    \"limit\": 3,\r\n    \"orderBy\": \"firstname\",\r\n    \"orderDirection\": \"DESC\",\r\n        \"roll_no\": \"\",\r\n        \"firstname\": \"\",\r\n        \"middlename\": \"\",\r\n        \"lastname\": \"\",\r\n        \"dob\": \"\",\r\n        \"gender\": \"Male\",\r\n        \"mobile_no\": \"\",\r\n        \"adhar_no\": \"\",\r\n        \"pan_no\": \"\",\r\n        \"address\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ImportFailedList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/students/importfailedlist",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"importfailedlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleRecord",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/students/get/6D1HIk3qLsJM7NF26UZxHw.74d67261f3ca6dbe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"get",
+								"6D1HIk3qLsJM7NF26UZxHw.74d67261f3ca6dbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ExportFailedImportList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/students/export-failedlist",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"export-failedlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStudentImportSamplefile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/students/get-student-import-samplefile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"get-student-import-samplefile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"status\":\"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students/updatestatus/SPYiVyLcgeF8WcERrTjdog.55c518192e1fbc92",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"updatestatus",
+								"SPYiVyLcgeF8WcERrTjdog.55c518192e1fbc92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "File Security",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/filesecurity/decryptfile/studentimage/enc_imagefile_01736930637547.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"filesecurity",
+								"decryptfile",
+								"studentimage",
+								"enc_imagefile_01736930637547.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "SPYiVyLcgeF8WcERrTjdog.55c518192e1fbc92",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/ankita.mowade/Pictures/1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/students/changeprofile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"changeprofile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User Registraion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loginid\":\"sad@gmail.com\",\r\n    \"firstname\":\"saddam\",\r\n    \"lastname\":\"hussain\",\r\n    \"email\":\"sad@gmail.com\",\r\n    \"mobile\":\"9975514419\",\r\n    \"roleid\":[\"1GirdoaGvXP7wP_JS5yRuA.efa1f68cf16b279d\"],\r\n    \"password\":\"1233456\",\r\n    \"confirmpassword\":\"1233456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/save",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    //\"userid\":\"PG3rTw1ekozDZlqKfV4I2A.cddb77c4cbacdd2e\",\r\n    \"loginid\":\"testuserone\",\r\n    \"firstname\":\"test\",\r\n    \"lastname\":\"user\",\r\n    \"email\":\"testuserone@gmail.com\",\r\n    \"mobile\":\"9975514419\",\r\n    \"roleid\":[\"1GirdoaGvXP7wP_JS5yRuA.efa1f68cf16b279d\"],\r\n    \"password\":\"1233456\",\r\n    \"confirmpassword\":\"1233456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Role List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/roles/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usre Role Permission",
+			"item": [
+				{
+					"name": "User Role Permission List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleid\":\"1GirdoaGvXP7wP_JS5yRuA.efa1f68cf16b279d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/userrolepermission/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"userrolepermission",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Role Permission List Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleid\":\"1GirdoaGvXP7wP_JS5yRuA.efa1f68cf16b279d\",\r\n    \"permission\":[\r\n        {\"menuId\":[10],\"action\":\"edit|delete\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/userrolepermission/save",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"userrolepermission",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/health",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "HealthCheck Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/health",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"48-TZWUDqVSAAscwzWPsu/84GlncFI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 05:16:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uptime\": 1640.7482856,\n    \"message\": \"Ok\",\n    \"date\": \"2025-01-04T05:16:02.208Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "HealthCheck Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/health",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"48-TZWUDqVSAAscwzWPsu/84GlncFI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 04 Jan 2025 05:16:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uptime\": 1640.7482856,\n    \"message\": \"Ok\",\n    \"date\": \"2025-01-04T05:16:02.208Z\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:4000/api/",
+			"type": "default"
+		},
+		{
+			"key": "accesstoken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjEsImxvZ2luaWQiOiJhZG1pbiIsImZpcnN0bmFtZSI6IkluZGlncm93IiwibGFzdG5hbWUiOiJBZG1pbiIsImVtYWlsIjoiZGV2Y2hhbmQuc29uc2F0aGlAdGVjaG5vYmFzZS5pbiIsIm1vYmlsZSI6ODQyMTY0OTkwMSwicHJvZmlsZSI6Imh0dHBzOi8vdGVjaG5vYmFzZS5pbi9kc3BpbS9kc3AvZGVmYXVsdC5wbmciLCJwYXNzd29yZCI6IiQyYiQxMCRlYVcvLkFzOC5TRzNiVU5zRVhGVUwudXVnVXBkeDl6aDd6VjZKMDJvRXVKZHVqQmlPZ3g1SyIsInR5cGUiOiJVc2VyIiwibWVudXNsdWdzIjpbImRhc2hib2FyZCIsIm1hc3RlcnMiLCJhY2Nlc3MtcGVybWlzc2lvbiIsInN5c3RlbV9jb25maWd1cmF0aW9uIiwibWFpbF9jb25maWd1cmF0aW9uIiwibWVudXMiLCJyb2xlcyIsInVzZXJzIiwidXNlcnJvbGVwZXJtaXNzaW9uIiwiY21zIiwiZmFxIiwic29jaWFsbWVkaWEiLCJ0ZXN0aW1vbmlhbCIsImJhbm5lciIsImZlYXR1cmUiLCIiLCJjb21wYW55LXNldHRpbmciLCJicm9rZXIiLCJjdXN0b21lciIsImZlZWRiYWNrIiwicGFja2FnZSIsInBheW1lbnRzIiwibm90aV9jb25maWciLCJwYWNrYWdlLW9mZmVyIiwic3ltYm9sLXRva2VuIiwiYWRtaW4tb3JkZXIiLCJhbGdvcyIsIm5vdGlfY29uZmlnIiwiYWRtaW4tdHJhZGUiLG51bGwsInN0dWRlbnRzIiwiZmlsZXNlY3VyaXR5Il0sImxvZ2ludGltZSI6IjIwMjUtMDEtMTdUMDQ6Mjg6MzcuOTUyWiIsImlhdCI6MTczNzA4ODExNywiZXhwIjoxNzM3MTMxMzE3fQ.CfOUa99CksMD2sfMicx08MpGtudvp49uhCRmbu1DaNg",
+			"type": "default"
+		}
+	]
+}
