@@ -1,10 +1,10 @@
-import StudentsList from "@/pages/students/StudentsList";
+import StudentRegistration from "@/pages/students/StudentRegistration";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <StudentsList />
+      <StudentRegistration />
     </>
   );
 };

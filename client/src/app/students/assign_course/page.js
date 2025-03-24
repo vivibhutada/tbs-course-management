@@ -1,10 +1,10 @@
-import StudentsList from "@/pages/students/StudentsList";
+import AssignCourse from "@/pages/students/AssignCourse";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <StudentsList />
+      <AssignCourse />
     </>
   );
 };

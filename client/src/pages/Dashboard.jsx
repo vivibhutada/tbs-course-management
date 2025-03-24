@@ -70,7 +70,7 @@ const Dashboard = () => {
   const headers = Object.keys(tableData[0]);
 
   return (
-    <div className='w-full min-h-[50vw] h-auto pt-2 px-2 flex flex-col gap-5 font-["Poppins"]'>
+    <div className='w-full min-h-[50vw] h-auto pt-2 flex flex-col gap-5 font-["Poppins"]'>
       {/* welcome greeting */}
       <div className="w-full h-[8vh] flex flex-col justify-start">
         <h3 className="font-semibold text-xl text-gray-900 ps-2">
@@ -255,7 +255,118 @@ const Dashboard = () => {
             <h4 className="font-bold text-2xl text-gray-900">
               Current Batches
             </h4>
-            <div></div>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-yellow-200 text-yellow-700 text-[0.8vw] rounded-md">
+                  Inactive
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-yellow-200 text-yellow-700 text-[0.8vw] rounded-md">
+                  Inactive
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-yellow-200 text-yellow-700 text-[0.8vw] rounded-md">
+                  Inactive
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <p className="font-semibold text-gray-800">Batch 1</p>
+                  <p className="font-medium text-[0.7vw] text-gray-600">
+                    Started on 7<sup>th</sup> March
+                  </p>
+                </div>
+                <button className="w-1/5 px-3 py-2 bg-green-200 text-green-700 text-[0.8vw] rounded-md">
+                  Active
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

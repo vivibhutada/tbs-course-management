@@ -2,7 +2,7 @@ const getAll =
   ({ db }) =>
   async () => {
     let [res] = await db.sequelize.query(
-      `SELECT vaishnavi_states.id, vaishnavi_states.state_name, vaishnavi_countries.country_name, vaishnavi_states.status FROM 
+      `SELECT vaishnavi_states.id, vaishnavi_states.state_name, vaishnavi_countries.country_name, vaishnavi_states.status FROM vaishnavi_states
        JOIN vaishnavi_countries 
        ON vaishnavi_states.country_id = vaishnavi_countries.id`
     );

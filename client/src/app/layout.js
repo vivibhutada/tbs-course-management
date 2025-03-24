@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
             </div>
             <div className="w-full h-full flex flex-row overflow-hidden">
               <Sidebar />
-              <div className="w-full lg:w-5/6 p-3 min-h-0 overflow-y-auto custom-scrollbar scroll-smooth">
+              <div className="w-full lg:w-5/6 px-5 py-3 min-h-0 overflow-y-auto custom-scrollbar scroll-smooth">
                 {children}
               </div>
             </div>
